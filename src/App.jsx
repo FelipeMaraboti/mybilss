@@ -136,15 +136,15 @@ function App() {
 
 	return (
 		<>
-			<header className="w-full h-[4rem] flex items-center">
+			<header className="w-screen h-[4rem] flex items-center">
 				<nav className="w-full flex justify-center">
 					<h1 className="text-3xl text-gray-700 font-bold font-mono">
 						MyBilss.com
 					</h1>
 				</nav>
 			</header>
-			<main>
-				<section className="w-full mt-[2rem] flex gap-[3rem] justify-center">
+			<main className="w-screen p-5 md:p-2">
+				<section className="w-full mt-[2rem] flex flex-col md:flex-row items-center gap-[1rem] md:gap-[3rem] justify-center">
 					<div className="h-[8rem] w-[16rem] bg-gray-900 flex flex-col gap-[1rem] items-center justify-center rounded-md">
 						<h2
 							className={`text-3xl text-center font-bold ${totalEmConta > 0 ? "text-emerald-400" : "text-red-400"}`}
@@ -200,7 +200,7 @@ function App() {
 								</h2>
 								<form className="flex flex-col gap-4 mb-4">
 									<label className="flex flex-col">
-										<span className="text-gray-900 pl-1">Data :</span>
+										<span className="text-gray-900 pl-1 text-[12px] md:text-md">Data :</span>
 										<input
 											required
 											value={data}
@@ -211,7 +211,7 @@ function App() {
 										/>
 									</label>
 									<label className="flex flex-col">
-										<span className="text-gray-900 pl-1">Descrição:</span>
+										<span className="text-gray-900 pl-1 text-[12px] md:text-md">Descrição:</span>
 										<input
 											required
 											value={descricao}
@@ -222,18 +222,18 @@ function App() {
 										/>
 									</label>
 									<label className="flex flex-col">
-										<span className="text-gray-900 pl-1">Valor :</span>
+										<span className="text-gray-900 pl-1 text-[12px] md:text-md ">Valor :</span>
 										<input
 											required
 											value={valor}
 											onChange={(e) => setValor(e.target.value)}
 											type="text"
 											placeholder="Ex: 973.45..."
-											className="px-1 py-2 border-2 border-gray-400 focus:border-gray-900 rounded-md"
+											className="md:px-1 py-2 border-2 border-gray-400 focus:border-gray-900 rounded-md"
 										/>
 									</label>
 									<label className="flex flex-col">
-										<span className="text-gray-900 pl-1">Tipo :</span>
+										<span className="text-gray-900 text-[12px] md:text-md pl-1">Tipo :</span>
 										<select
 											required
 											value={tipo}
@@ -254,14 +254,14 @@ function App() {
 								<button
 									type="button"
 									onClick={() => setModalAberto(false)}
-									className="flex-1 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-200 cursor-pointer"
+									className="flex-1 px-4 py-2 bg-red-500 text-[10px] md:text-sm text-white rounded-md hover:bg-red-600 transition duration-200 cursor-pointer"
 								>
 									Cancelar
 								</button>
 								<button
 									type="button"
 									onClick={onHandleAdicionarTransacao}
-									className="flex-1 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition duration-200 cursor-pointer"
+									className="flex-1 px-4 py-2 bg-gray-900 text-[10px] md:text-sm text-white rounded-md hover:bg-gray-800 transition duration-200 cursor-pointer"
 								>
 									Cadastrar Transação
 								</button>
@@ -274,10 +274,10 @@ function App() {
 						<table className="w-full table-auto">
 							<thead className="bg-gray-900">
 								<tr className="text-left text-gray-100 font-semibold text-sm">
-									<th className="px-4 py-3 w-[8rem]">Data</th>
-									<th className="px-4 py-3 w-[28rem]">Descrição</th>
-									<th className="px-4 py-3 w-[10rem]">Valor</th>
-									<th className="px-4 py-3 w-[8rem]">Tipo</th>
+									<th className="px-1 md:px-4 py-3 w-[8rem] md:w-[8rem]">Data</th>
+									<th className="px-1 md:px-4 py-3 w-[14rem] md:w-[28rem]">Descrição</th>
+									<th className="px-1 md:px-4 py-3 w-[5rem] md:w-[10rem]">Valor</th>
+									<th className="px-1 md:px-4 py-3 w-[4rem] md:w-[8rem]">Tipo</th>
 								</tr>
 							</thead>
 							{transacoes.length > 0 ? (
@@ -285,7 +285,7 @@ function App() {
 									{transacoes.map((transferencia) => (
 										<tr
 											key={transferencia.id}
-											className="border-t border-gray-200 hover:bg-gray-50 transition"
+											className="text-[8px] md:text-[14px] border-t border-gray-200 hover:bg-gray-50 transition"
 										>
 											<td className="px-4 py-2 text-gray-900">
 												{transferencia.data}
@@ -301,7 +301,7 @@ function App() {
 											</td>
 											<td className="px-4 py-2">
 												<span
-													className={`inline-block px-2 py-1 text-xs font-medium rounded-md text-white ${getTipoEstiloTabela(transferencia.tipo)}`}
+													className={`inline-block px-2 py-1 md:text-xs md:font-medium rounded-md text-white ${getTipoEstiloTabela(transferencia.tipo)}`}
 												>
 													{transferencia.tipo}
 												</span>
